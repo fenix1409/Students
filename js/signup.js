@@ -3,7 +3,7 @@ elSignupForm.addEventListener("submit", function(e) {
     e.preventDefault();
     
     const data = {
-        newemail: e.target.useremail.value,
+        newusername: e.target.newusername.value,
         newpassword: e.target.userpassword.value
     };
     

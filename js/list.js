@@ -4,7 +4,7 @@ let elStudentList = document.querySelector(".student-tbody");
 let elMoreWrapper = document.querySelector(".more-wrapper")
 
 let students = JSON.parse(localStorage.getItem("students")) || [];
-document.querySelector(".user-name").textContent = JSON.parse(localStorage.getItem("user")).username
+document.querySelector(".user-logined").textContent = JSON.parse(localStorage.getItem("user")).username
 
 // Add student
 function handleAddStudentBtnClick() {
@@ -14,7 +14,7 @@ function handleAddStudentBtnClick() {
         <h2 class="text-center text-2xl font-bold mb-6 text-white">Add New Student</h2>
         <label class="block mb-4 cursor-pointer">
             <input type="file" class="add-choose-input hidden">
-            <img class="add-choose-img mx-auto w-80 h-60 object-cover border-2 border-dashed border-white p-2" src="./images/emptyimkg.png" alt="Empty img">
+            <img class="add-choose-img mx-auto w-[240px] h-[160px] object-cover border-2 border-dashed border-white p-2" src="./images/emptyimkg.png" alt="Empty img">
         </label>
         <div class="space-y-5">
         <div class="flex items-center gap-[20px]">
@@ -27,7 +27,7 @@ function handleAddStudentBtnClick() {
                 <input class="outline-none py-3 rounded-md pl-2 border border-gray-300 w-full" type="number" name="number" placeholder="Enter phone number" required>
                 </div>
                 </div>
-                <input class="outline-none py-3 rounded-md pl-2 border border-gray-300 w-full" type="date" name="date" placeholder="Enter date time" required>
+                <input class="outline-none py-3 rounded-md pl-2 border border-gray-300 w-full cursor-pointer" type="date" name="date" placeholder="Enter date time" required>
         </div>
         <button class="mt-6 w-[300px] mx-auto block py-2 bg-green-500 text-white rounded-md font-semibold hover:scale-[1.4] duration-200">ADD NEW STUDENT</button>
     </form>
@@ -96,6 +96,7 @@ function renderStudents(arr) {
         </div>
       </td>
       <td class="py-4 text-left pl-4">${item.email}</td>
+      <td class="py-4 text-left pl-4">${item.number}</td>
       <td class="py-4 text-left pl-4">${item.enrollnumber}</td>
       <td class="py-4 text-left pl-4">${item.date}</td>
       <td class="py-4 text-center">
@@ -166,7 +167,7 @@ function handleEditCLickBtn(id) {
     <form class="edit-student-form p-[41px]" autocomplete="off">
       <label class="block mb-[24px] cursor-pointer">
         <input type="file" class="edit-choose-input hidden">
-        <img class="edit-choose-img mx-auto w-[500px] h-[300px] object-contain p-2 rounded-md" src="${foundObj.imgUrl}" alt="student image" width="691" height="316">
+        <img class="edit-choose-img mx-auto w-[240px] h-[160px] object-contain p-2 rounded-md" src="${foundObj.imgUrl}" alt="student image" width="691" height="316">
       </label>
       <div class="flex justify-between">
         <div class="w-[49%] space-y-[13px]">
@@ -176,11 +177,15 @@ function handleEditCLickBtn(id) {
         <div class="w-[49%] space-y-[13px]">
           <input value="${foundObj.number}" class="cursor-pointer outline-none py-[11.5px] rounded-md pl-2 border-[1px] border-slate-500 w-full" type="number" name="number" placeholder="Phone number">
           <input value="${foundObj.enrollnumber}" class="cursor-pointer outline-none py-[11.5px] rounded-md pl-2 border-[1px] border-slate-500 w-full" type="number" name="enrollnumber" placeholder="enroll phone number">
-        </div>
-      </div>
-      <button class="hover:scale-[1.3] duration-300 w-[199px] block py-[14px] bg-green-500 text-white text-[14px] text-center font-medium rounded-[4px] mx-auto mt-8">EDIT</button>
+          <input value="${foundObj.date}" class="outline-none py-3 rounded-md pl-2 border border-gray-300 w-full cursor-pointer" type="date" name="date" placeholder="Enter date time" required>
+          </div>
+          </div>
+          <button class="hover:scale-[1.3] duration-300 w-[199px] block py-[14px] bg-green-500 text-white text-[14px] text-center font-medium rounded-[4px] mx-auto mt-8">EDIT</button>
     </form>
   `;
+
+  console.log(`${foundObj.enrollnumber}`);
+  
   
   let elStudentForm = document.querySelector(".edit-student-form");
   let elChooseInput = document.querySelector(".edit-choose-input");
@@ -198,7 +203,9 @@ function handleEditCLickBtn(id) {
       imgUrl: elChooseImg.src,
       name: e.target.name.value,
       email: e.target.email.value,
-      number: e.target.number.value
+      number: e.target.number.value,
+      enrollnumber: e.target.enrollnumber.value,
+      date: e.target.date.value
     };
     e.target.lastElementChild.innerHTML = `
       <img class="mx-auto scale-[1.4]" src="./images/loading.png" alt="loading" width="35">
