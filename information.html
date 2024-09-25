@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Students</title>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#E5E5E5]">
+    
+    <div class="flex">
+        <nav class="w-[22%] h-[100vh] overflow-y-auto bg-[#F2EAE1]">
+            <div class="p-[35px] mb-[54px]">
+                <img src="./images/Logo.svg" alt="logo" width="171" height="24">
+                <a href="#" class="block flex items-center flex-col mt-[54px]">
+                    <label class="block cursor-pointer">
+                        <input class="choose-profile-img hidden" type="file" accept="image/*" onchange="handleProfileImageChange()">
+                        <img class="profileImage" src="./images/profile-icon.svg" alt="profile icon" width="130" height="100">
+                    </label>                      
+                    <strong class="text-[17px] leading-[20px] font-bold my-3">Karthi Madesh</strong>
+                    <span class="text-[14px] leading-[17px] text-[#FEAF00]">Admin</span>
+                </a>
+                <button onclick="handleStudenttBtnClick()" class="hover:scale-[1.3] duration-300 w-[199px] mx-auto mt-[63px] flex items-center justify-center gap-[15px] py-[14px] bg-[#FEAF00] text-black text-[14px] leading-[17px] font-medium text-center font-medium rounded-[4px]">
+                    <img src="./images/graduation-cap 1.svg" alt="cap img" width="20" height="16">
+                    Students</button>
+                </div>
+                <button onclick="handleLogoutBtn()" class="hover:scale-[1.3] duration-300 block flex items-center gap-3 mx-auto mt-[200px]">
+                    <span class="text-[14px] leading-[17px] font-medium">Logout</span>
+                    <img src="./images/logout-icon.svg" alt="logout icon" width="17" height="17">
+                </button>
+            </nav>
+            <div class="w-[78%] h-[100vh] overflow-y-auto">
+                <div class="flex items-center justify-start gap-[31px] px-[61px] py-[31.5px] bg-[#F2EAE1] px-[30px]">
+                    <a href="./list.html">
+                        <img src="./images/back.svg" alt="img" width="18" height="18">
+                    </a>
+                </div>
+                <div class="pt-5 pl-6">
+                    <h2 class="border-b-1px border-[#E5E5E5] text-[22px] leading-[26px] font-bold">Name</h2>
+                    <div class="w-[592px] h-[391px] pl-[22px] pt-[28px] bg-white mt-[41px] flex items-center">
+                        <div id="studentModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center scale-0 transition-transform duration-300">
+                            <div class="bg-white p-4 rounded shadow-md">
+                                <h3 class="font-bold text-lg">Student Details</h3>
+                                <div>
+                                    <img id="studentImg" src="./images/profile-icon.svg" alt="img" width="109" height="116">
+                                    <h2 class="text-xl font-bold" id="studentName">Student Name</h2>
+                                    <p id="studentEmail">Email: fnx@.com</p>
+                                    <p id="studentPhone">Phone: +99897xxxxxxx</p>
+                                    <p id="studentEnroll">Enroll Number: 123456</p>
+                                    <p id="studentDate">Date: 2007-09-14</p>
+                                </div>
+                                <button onclick="closeModal()" class="mt-4 px-4 py-2 bg-red-500 text-white rounded">Close</button>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>    
+            
+            <script src="./js/inf.js"></script>
+            <script src="https://cdn.tailwindcss.com"></script>
+            <script>
+                tailwind.config = {
+                    theme: {
+                        extend: {
+                            colors: {
+                                clifford: '#da373d',
+                            }
+                        }
+                    }
+                }
+            </script>
+        </body>
+        </html>
