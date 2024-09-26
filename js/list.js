@@ -101,13 +101,13 @@ function renderStudents(arr) {
       <td class="py-4 text-left pl-4">${item.date}</td>
       <td class="py-4 text-center">
         <div class="flex justify-center items-center gap-4">
-          <button onclick="handleEditCLickBtn(${item.id})" class="text-blue-600 hover:underline">
+          <button onclick="handleEditCLickBtn(${item.id})" class="hover:scale-[1.3] duration-300">
             <img src="./images/edit.svg" width="19" height="19"/>
           </button>
-          <button onclick="handleDeleteCLickBtn(${item.id})" class="text-red-600 hover:underline">
+          <button onclick="handleDeleteCLickBtn(${item.id})" class="hover:scale-[1.3] duration-300">
             <img src="./images/delete.svg" width="16" height="18"/>
           </button>
-          <button onclick="handleMoreClickBtn(${item.id})">
+          <button onclick="handleMoreClickBtn(${item.id})" class="hover:scale-[1.3] duration-300">
             <img src="./images/more.svg" width="19" height="6"/>
           </button>
         </div>
