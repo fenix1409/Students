@@ -333,3 +333,13 @@ document.querySelector("#studentModal").addEventListener("click", function(e) {
   }
 });
 // more part 
+
+
+
+// sort part 
+function handleSortBtnClick() {
+  const sortedStudents = students.sort((a, b) => a.name.localeCompare(b.name)); 
+  renderStudents(sortedStudents);
+}
+
+// sort part 
